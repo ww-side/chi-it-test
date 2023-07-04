@@ -5,6 +5,7 @@ Link - https://chit-it-test-ww-side.netlify.app/
 - TypeScript
 - React
 - Redux Toolkit
+- Tailwind
   ![Pic](https://images2.imgbox.com/19/2d/998VSOVd_o.png)
 ### Search
 The search is done by input. In the drop-down list we can select the search 
