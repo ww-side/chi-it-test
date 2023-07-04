@@ -1,5 +1,6 @@
 import { FC, useEffect } from 'react';
 import axios from 'axios';
+import { Watch } from 'react-loader-spinner';
 import CarsTable from './CarsTable/index.tsx';
 import Pagination from './Pagination/index.tsx';
 import Search from './Search/index.tsx';
@@ -98,7 +99,9 @@ const CarsList: FC = () => {
           <AddForm />
         </span>
         {loading ? (
-          'Loading'
+          <div className="flex items-center justify-center h-32">
+            <Watch height="80" width="80" color="#0095B6" ariaLabel="loading" />
+          </div>
         ) : (
           <>
             <CarsTable cars={currentItems} />
