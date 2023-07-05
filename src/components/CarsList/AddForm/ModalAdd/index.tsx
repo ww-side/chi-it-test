@@ -27,6 +27,45 @@ const ModalAdd: FC<ModalAddProps> = ({ isModalOpen, handleCloseModal }) => {
     availability: false,
   });
 
+  const inputFields = [
+    {
+      name: 'car',
+      type: 'text',
+      placeholder: 'Car',
+      value: carData.car,
+    },
+    {
+      name: 'car_model',
+      type: 'text',
+      placeholder: 'Car Model',
+      value: carData.car_model,
+    },
+    {
+      name: 'car_color',
+      type: 'text',
+      placeholder: 'Car Color',
+      value: carData.car_color,
+    },
+    {
+      name: 'car_model_year',
+      type: 'number',
+      placeholder: 'Car Model Year',
+      value: carData.car_model_year,
+    },
+    {
+      name: 'car_vin',
+      type: 'text',
+      placeholder: 'Car VIN',
+      value: carData.car_vin,
+    },
+    {
+      name: 'price',
+      type: 'number',
+      placeholder: 'Price',
+      value: carData.price,
+    },
+  ];
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     dispatch(addCar(carData));
@@ -54,48 +93,16 @@ const ModalAdd: FC<ModalAddProps> = ({ isModalOpen, handleCloseModal }) => {
   return (
     <CustomModal isModalOpen={isModalOpen} handleCloseModal={handleCloseModal}>
       <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
-        <Input
-          value={carData.car}
-          type="text"
-          placeholder="Car"
-          onChange={(value: string) => handleChange('car', value)}
-          required={true}
-        />
-        <Input
-          value={carData.car_model}
-          type="text"
-          placeholder="Car Model"
-          onChange={(value: string) => handleChange('car_model', value)}
-          required={true}
-        />
-        <Input
-          value={carData.car_color}
-          type="text"
-          placeholder="Car Color"
-          onChange={(value: string) => handleChange('car_color', value)}
-          required={true}
-        />
-        <Input
-          value={carData.car_model_year}
-          type="number"
-          placeholder="Car Model Year"
-          onChange={(value: string) => handleChange('car_model_year', value)}
-          required={true}
-        />
-        <Input
-          value={carData.car_vin}
-          type="text"
-          placeholder="Car VIN"
-          onChange={(value: string) => handleChange('car_vin', value)}
-          required={true}
-        />
-        <Input
-          type="number"
-          placeholder="Price"
-          value={carData.price}
-          onChange={(value: string) => handleChange('price', value)}
-          required={true}
-        />
+        {inputFields.map(field => (
+          <Input
+            key={field.name}
+            value={field.value}
+            type={field.type}
+            placeholder={field.placeholder}
+            onChange={(value: string) => handleChange(field.name, value)}
+            required={true}
+          />
+        ))}
         <span
           className="flex gap-2 items-center text-gray-400 border
         border-gray-300 focus:outline-none focus:border-blue-500 rounded-xl
