@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import CarsList from './components/CarsList/index.tsx';
 
-const MyComponent: FC = () => {
+const App: FC = () => {
   return (
     <>
       <CarsList />
@@ -9,4 +9,4 @@ const MyComponent: FC = () => {
   );
 };
 
-export default MyComponent;
+export default App;
